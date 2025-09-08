@@ -130,6 +130,48 @@
       </section>
       <!-- Choose your tree -->
       <section class="choose-your-tree"></section>
+      <!-- Our Impact -->
+      <section
+        class="bg-[#CFF0DC] flex flex-col items-center justify-center py-28"
+      >
+        <h2 class="inter font-semibold text-3xl text-[#1F2937]">Our Impact</h2>
+        <div class="flex flex-wrap gap-12 justify-center mt-10">
+          <div class="card card-border bg-base-100 w-96">
+            <div class="card-body">
+              <h2
+                class="text-center inter text-3xl font-semibold text-[#15803D]"
+              >
+                500K+
+              </h2>
+              <p class="text-center inter text-[#1F2937]">Trees Planted</p>
+            </div>
+          </div>
+
+          <div class="card card-border bg-base-100 w-96">
+            <div class="card-body">
+              <h2
+                class="text-center inter text-3xl font-semibold text-[#15803D]"
+              >
+                120+
+              </h2>
+              <p class="text-center inter text-[#1F2937]">
+                Communities Involved
+              </p>
+            </div>
+          </div>
+
+          <div class="card card-border bg-base-100 w-96">
+            <div class="card-body">
+              <h2
+                class="text-center inter text-3xl font-semibold text-[#15803D]"
+              >
+                30+
+              </h2>
+              <p class="text-center inter text-[#1F2937]">Countries Reached</p>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- Plant a Tree Today -->
       <section
         class="bg-[#166534] flex flex-col items-center justify-center py-28"
@@ -143,15 +185,26 @@
               type="text"
               class="input w-full text-[#1F2937]"
               placeholder="Your Name"
+              required
+              aria-required="true"
             />
 
             <input
               type="email"
               class="input w-full text-[#1F2937]"
               placeholder="Your Email Address"
+              required
+              aria-required="true"
             />
 
-            <select class="select w-full" placeholder="Number of Trees">
+            <select
+              class="select w-full"
+              placeholder="Number of Trees"
+              title="Number of Trees"
+              aria-label="Number of Trees"
+              required
+              aria-required="true"
+            >
               <option disabled selected>Number of Trees</option>
               <option>1</option>
               <option>2</option>
@@ -159,6 +212,7 @@
             </select>
 
             <button
+              type="submit"
               class="btn btn-neutral inter font-medium bg-[#FACC15] rounded-3xl text-[#15803D] hover:bg-[#05963a] hover:text-[#FACC15] hover:border-[#FACC15] hover:border-2"
             >
               Donate Now
