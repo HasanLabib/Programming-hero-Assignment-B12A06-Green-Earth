@@ -138,7 +138,44 @@
         </div>
       </section>
       <!-- Choose your tree -->
-      <section class="choose-your-tree"></section>
+      <section class="choose-your-tree w-11/12 mx-auto mt-10">
+        <div class="flex justify-center items-start gap-8 flex-col md:flex-row">
+          <aside class="flex-1 md:flex-[18%] border-orange-600 border-2">
+            <div class="w-full max-w-full">
+              <h2 class="menu-title">Categories</h2>
+              <ul
+                class="menu treeCatagories bg-base-200 rounded-box w-full md:w-56 flex flex-wrap flex-row md:flex-col items-left justify-center"
+              >
+                <li class="all-trees"><a>All Trees</a></li>
+              </ul>
+            </div>
+          </aside>
+          <section
+            id="spinner"
+            class="flex-1 md:flex-[75%] justify-center items-center py-10 hidden"
+          >
+            <span class="loading loading-spinner loading-xl"></span>
+          </section>
+          <section
+            class="flex-1 md:flex-[75%] border-orange-600 border-2 tree-card-section"
+          >
+            <div
+              class="w-full max-w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 border-orange-600 border-2 tree-card-container"
+            ></div>
+          </section>
+          <div class="flex-1 w-full md:flex-[20%] border-orange-600 border-2">
+            <div>
+              <h1 class="text-black font-semibold text-xl">Your Cart</h1>
+            </div>
+            <div class="flex flex-col gap-4 mt-4 cart-items-container"></div>
+            <hr class="text-[#1F2937] opacity-30" />
+            <div class="total-container flex justify-between items-center mt-4">
+              <p class="inter font-medium">Total</p>
+              <p class="total-amount inter font-medium">0</p>
+            </div>
+          </div>
+        </div>
+      </section>
       <!--About the Campaign -->
       <section id="about-campaign">
         <h2
