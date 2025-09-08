@@ -104,14 +104,14 @@
         </div>
       </nav>
     </header>
-    <main>
+    <main class="main">
       <!-- Banner -->
       <section class="banner-container">
         <div
           class="hero bg-[#CFF0DC] bg-no-repeat md:bg-[url('./B12A06-Green-Earth/assets/hero-leaf1.png'),_url('./B12A06-Green-Earth/assets/hero-leaf2.png')] md:bg-[position:left,_right] md:bg-[size:contain,_contain]"
         >
           <div class="hero-content text-center">
-            <div class="max-w-fit mx-auto">
+            <div class="max-w-fit mx-auto py-8">
               <h1 class="text-5xl font-bold inter text-[#1F2937]">
                 Plant a Tree, Grow a Future
               </h1>
@@ -128,8 +128,48 @@
           </div>
         </div>
       </section>
+      <!-- Choose your tree -->
+      <section class="choose-your-tree"></section>
+      <!-- Plant a Tree Today -->
+      <section
+        class="bg-[#166534] flex flex-col items-center justify-center py-28"
+      >
+        <h2 class="inter font-semibold text-4xl text-white">
+          Plant a Tree Today
+        </h2>
+        <div class="bg-[#15803D] rounded-3xl sm:w-[90%] md:w-[33%] mt-10">
+          <fieldset class="fieldset w-full border-none p-4 md:p-8 space-y-3">
+            <input
+              type="text"
+              class="input w-full text-[#1F2937]"
+              placeholder="Your Name"
+            />
+
+            <input
+              type="email"
+              class="input w-full text-[#1F2937]"
+              placeholder="Your Email Address"
+            />
+
+            <select class="select w-full" placeholder="Number of Trees">
+              <option disabled selected>Number of Trees</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+
+            <button
+              class="btn btn-neutral inter font-medium bg-[#FACC15] rounded-3xl text-[#15803D] hover:bg-[#05963a] hover:text-[#FACC15] hover:border-[#FACC15] hover:border-2"
+            >
+              Donate Now
+            </button>
+          </fieldset>
+        </div>
+      </section>
     </main>
-    <footer></footer>
+    <footer class="mx-auto text-center py-4 text-white bg-[#14532D] inter">
+      &copy 2025 Green Earth. All Rights Reserved.
+    </footer>
     <script src="./script/script.js"></script>
   </body>
 </html>
