@@ -64,6 +64,7 @@
               <li>
                 <a
                   class="btn bg-[#15803D] text-[#FACC15] hover:text-[#15803D] hover:bg-[#FACC15]"
+                  href="#about-campaign"
                   >About</a
                 >
               </li>
@@ -77,6 +78,7 @@
               <li>
                 <a
                   class="btn bg-[#15803D] text-[#FACC15] hover:text-[#15803D] hover:bg-[#FACC15]"
+                  href="#plant-a-tree-today"
                   >Plant a Tree</a
                 >
               </li>
@@ -89,16 +91,23 @@
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1 text-white font-medium inter">
-            <li><a class="hover:text-[#FACC15]">About</a></li>
+            <li>
+              <a class="hover:text-[#FACC15]" href="#about-campaign">About</a>
+            </li>
             <li>
               <a class="hover:text-[#FACC15]"> Gallery </a>
             </li>
-            <li><a class="hover:text-[#FACC15]">Plant a Tree</a></li>
+            <li>
+              <a class="hover:text-[#FACC15]" href="#plant-a-tree-today"
+                >Plant a Tree</a
+              >
+            </li>
           </ul>
         </div>
         <div class="navbar-end">
           <a
             class="btn inter font-medium bg-[#FACC15] rounded-3xl text-[#15803D] hover:bg-[#069139] hover:text-[#FACC15] hover:border-[#FACC15] hover:border-2"
+            href="#plant-a-tree-today"
             >Plant a Tree</a
           >
         </div>
@@ -130,6 +139,37 @@
       </section>
       <!-- Choose your tree -->
       <section class="choose-your-tree"></section>
+      <!--About the Campaign -->
+      <section id="about-campaign">
+        <h2
+          class="inter font-semibold text-3xl text-[#1F2937] text-center mt-10 mb-10"
+        >
+          About the Campaign
+        </h2>
+        <div class="hero bg-[##F0FDF4] mb-10">
+          <div
+            class="hero-content flex-col max-md:flex-col lg:flex-row-reverse w-[95%] md:w-[63%] mx-auto gap-8"
+          >
+            <div class="text-left md:text-left">
+              <p>
+                Green Earth is a global tree plantation initiative dedicated to
+                fighting climate change. Since our start, we’ve planted over
+                500,000 trees worldwide. By joining our campaign, you help
+                restore forests, create habitats for wildlife, and combat global
+                warming.
+              </p>
+              <ul class="list-disc list-inside text-left md:text-left mt-4">
+                <li>Restoration of natural habitats</li>
+                <li>Improvement of air quality</li>
+                <li>Support for local communities</li>
+              </ul>
+            </div>
+            <div class="card w-full max-w-sm shrink-0 shadow-2xl">
+              <img src="./B12A06-Green-Earth/assets/about.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- Our Impact -->
       <section
         class="bg-[#CFF0DC] flex flex-col items-center justify-center py-28"
@@ -174,16 +214,19 @@
       </section>
       <!-- Plant a Tree Today -->
       <section
+        id="plant-a-tree-today"
         class="bg-[#166534] flex flex-col items-center justify-center py-28"
       >
         <h2 class="inter font-semibold text-4xl text-white">
           Plant a Tree Today
         </h2>
-        <div class="bg-[#15803D] rounded-3xl sm:w-[90%] md:w-[33%] mt-10">
+        <div
+          class="bg-[#15803D] rounded-3xl w-[85%] max-md:[65%] md:w-[33%] mt-10"
+        >
           <fieldset class="fieldset w-full border-none p-4 md:p-8 space-y-3">
             <input
               type="text"
-              class="input w-full text-[#1F2937]"
+              class="input inputName w-full text-[#1F2937]"
               placeholder="Your Name"
               required
               aria-required="true"
@@ -191,29 +234,31 @@
 
             <input
               type="email"
-              class="input w-full text-[#1F2937]"
+              class="input inputEmail w-full text-[#1F2937]"
               placeholder="Your Email Address"
               required
               aria-required="true"
             />
 
             <select
-              class="select w-full"
+              class="select selectTreeNum w-full"
               placeholder="Number of Trees"
               title="Number of Trees"
               aria-label="Number of Trees"
               required
               aria-required="true"
             >
-              <option disabled selected>Number of Trees</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
+              <option disabled selected class="btn btn-neutral">
+                Number of Trees
+              </option>
+              <option class="btn btn-primary">1</option>
+              <option class="btn btn-primary">2</option>
+              <option class="btn btn-primary">3</option>
             </select>
 
             <button
               type="submit"
-              class="btn btn-neutral inter font-medium bg-[#FACC15] rounded-3xl text-[#15803D] hover:bg-[#05963a] hover:text-[#FACC15] hover:border-[#FACC15] hover:border-2"
+              class="btn btn-neutral donateBtn inter font-medium bg-[#FACC15] rounded-3xl text-[#15803D] hover:bg-[#05963a] hover:text-[#FACC15] hover:border-[#FACC15] hover:border-2"
             >
               Donate Now
             </button>
@@ -224,6 +269,6 @@
     <footer class="mx-auto text-center py-4 text-white bg-[#14532D] inter">
       &copy 2025 Green Earth. All Rights Reserved.
     </footer>
-    <script src="./script/script.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
