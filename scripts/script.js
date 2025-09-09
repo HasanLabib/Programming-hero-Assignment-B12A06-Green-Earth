@@ -16,22 +16,37 @@ const loadCategories = async () => {
   const data = await res.json();
   displayCategories(data.categories);
 };
+const removeActive = () => {
+  const categoryList = document.querySelectorAll(".categoryList");
+  categoryList.forEach((category) => category.classList.remove("active"));
+};
 const displayCategories = (categories) => {
   const categoriesContainer = document.querySelector(".treeCatagories");
   console.log(categoriesContainer);
   categories.forEach((category) => {
     const categoryList = document.createElement("li");
+    categoryList.classList.add(
+      "categoryList",
+      "inter",
+      "hover:bg-green-300",
+      "hover:scale-105"
+    );
+    categoryList.id = category.id;
     const categoryListLink = document.createElement("a");
     //categoryListLink.href = `https://openapi.programming-hero.com/api/category/${category.id}`;
     categoryList.addEventListener("click", (e) => {
       console.log(category.id);
       const treesContainer = document.querySelector(".tree-card-container");
       treesContainer.innerHTML = "";
+      document.querySelector(".all-trees").classList.remove("active");
+      removeActive();
+      categoryList.classList.add("active");
       loadTreeData(category.id);
       e.stopPropagation();
     });
     categoryListLink.innerText = `${category.category_name}`;
     categoryList.appendChild(categoryListLink);
+
     categoriesContainer.appendChild(categoryList);
   });
 };
@@ -50,14 +65,23 @@ loadAllTreesData();
 
 document.querySelector(".all-trees").addEventListener("click", (e) => {
   e.stopPropagation();
+  removeActive();
+  const treesContainer = document.querySelector(".tree-card-container");
+  treesContainer.innerHTML = "";
+  document.querySelector(".all-trees").classList.add("active");
   loadAllTreesData();
 });
 
 const creatingCard = (tree) => {
   const treesContainer = document.querySelector(".tree-card-container");
-
   const card = document.createElement("div");
-  card.classList.add("card", "bg-base-100", "shadow-sm");
+  card.classList.add(
+    "card",
+    "bg-base-100",
+    "shadow-sm",
+    "hover:scale-105",
+    "hover:transition"
+  );
   const imageDiv = document.createElement("div");
   imageDiv.classList.add("p-3");
   const figure = document.createElement("figure");
@@ -75,19 +99,7 @@ const creatingCard = (tree) => {
   title.innerText = tree.name;
   title.addEventListener("click", (e) => {
     e.stopPropagation();
-    // {
-    //   <dialog id="my_modal_3" class="modal">
-    //     <div class="modal-box">
-    //       <form method="dialog">
-    //         <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-    //           ✕
-    //         </button>
-    //       </form>
-    //       <h3 class="text-lg font-bold">Hello!</h3>
-    //       <p class="py-4">Press ESC key or click on ✕ button to close</p>
-    //     </div>
-    //   </dialog>;
-    // }
+    loadTreeModalDetail(tree.id);
   });
   cardBody.appendChild(title);
   const description = document.createElement("p");
@@ -183,7 +195,7 @@ const createAddCart = (tree, id, count) => {
   itemName.classList.add("inter", "font-semibold");
   itemName.innerText = tree.name;
   const itemCount = document.createElement("p");
-  itemCount.classList.add("inter", "font-semibold");
+  itemCount.classList.add("inter", "font-semibold","text-[#1F2937]","opacity-50");
 
   totalAmount += parseInt(tree.price);
   itemCount.innerText = `$${parseInt(tree.price)} x ${count}`;
@@ -249,6 +261,53 @@ const displayTreeData = (trees) => {
   manageSpinner(false);
 };
 
+const loadTreeModalDetail = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+  const res = await fetch(url);
+  const details = await res.json();
+  console.log(details.plants);
+  displayTreeModalDetails(details.plants);
+};
+
+const displayTreeModalDetails = (tree) => {
+  console.log(tree);
+  const treeModal = document.getElementById("treeModal");
+  treeModal.querySelector(
+    ".treeDetails"
+  ).innerHTML = `<div class="card card-xl w-full max-w-full bg-base-100 shadow-sm mx-auto">
+  <div class="flex flex-col md:flex-row"><div class="p-3 flex-1">
+    <figure>
+      <img
+        src=${tree.image}
+        alt=''
+        class="rounded-lg"
+      />
+    </figure>
+  </div>
+  <div class="card-body p-2 flex-1">
+    <h2 class="card-title inter">${tree.name}</h2>
+    <p>
+      ${tree.description}
+    </p>
+    <div class="flex flex-row  md:flex-col justify-between items-center gap-5">
+      <div class="card-actions justify-start">
+        <div class="badge badge-outline rounded-3xl bg-[#DCFCE7] text-[#15803D] inter w-full">
+          Category: ${tree.category}
+        </div>
+      </div>
+      <div class="card-actions justify-end">
+        <div class="inter font-semibold ">Price:$${parseInt(tree.price)}</div>
+      </div>
+    </div>
+  </div></div>
+</div>`;
+
+  document.getElementById("treeModal").showModal();
+};
+document.querySelector(".modal-btn-close").addEventListener("click", (e) => {
+  e.stopPropagation();
+  document.getElementById("treeModal").close();
+});
 {
   /* <div class="card bg-base-100 shadow-sm">
   <div class="p-3">
@@ -297,7 +356,21 @@ donateBtn.addEventListener("click", (e) => {
             
             Your Email: ${email}
             
-            Number of Trees: ${num}`);
+            Number of Trees: ${num[0]}`);
+  }
+
+  switch (num) {
+    case "1-20$":
+      alert(`Donated: 20$`);
+      break;
+    case "2-40$":
+      alert(`Donated: 40$`);
+      break;
+    case "3-60$":
+      alert(`Donated: 60$`);
+      break;
+    default:
+      break;
   }
   e.stopPropagation();
 });
